@@ -47,7 +47,7 @@ const App = () => {
         }
       </div>
       <button type="button" className={`${styles.analyse__button} btn btn-primary`} data-bs-toggle="modal" data-bs-target="#exampleModal">Analyse</button>
-      <Chart uniqueCategories={uniqueCategories} />
+      <Chart />
     </div >
   )
 }

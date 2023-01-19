@@ -27,7 +27,7 @@ export const data = {
         },
     ],
 };
-const Chart = ({ uniqueCategories }) => {
+const Chart = () => {
     return (
         <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
