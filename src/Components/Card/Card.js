@@ -9,7 +9,7 @@ const Card = ({ category, title, desc }) => {
             <img src={DUMMY_IMAGE} className="card-img-top" alt="..." />
             <h5 className={`${styles.category} card-title`}>{category}</h5>
             <div className="card-body">
-                <p className="card-text"><u>Title:</u> {title.length > 50 ? title.substring(0, 50) + '...' : title}</p>
+                <p className="card-text"><u>Title:</u> {title}</p>
                 <p className="card-text">
                     <u>Description:</u> {desc.length > 150 && !showMore ? desc.substring(0, 150) + '...' : desc}
                 </p>
