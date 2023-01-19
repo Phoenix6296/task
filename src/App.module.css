@@ -13,3 +13,10 @@
   bottom: 2rem;
   right: 5rem;
 }
+
+@media screen and (max-width: 500px) {
+  .analyse__button {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
