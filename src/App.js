@@ -21,6 +21,14 @@ const App = () => {
       })
   }, [filterCatergory])
 
+  const uniqueCategories = products.reduce((acc, product) => {
+    if (acc[product.category])
+      acc[product.category] += 1;
+    else
+      acc[product.category] = 1;
+    return acc;
+  }, {})
+  console.table(uniqueCategories);
 
   return (
     <div className={`${styles.app__wrapper} container`}>
@@ -28,18 +36,18 @@ const App = () => {
       <div className={styles.app}>
         {
           products.filter((product) => {
-            if (filterCatergory === 'Categories') {
+            if (filterCatergory === 'Categories')
               return product;
-            } else if (product.category === filterCatergory) {
+            else if (product.category === filterCatergory)
               return product;
-            }
+            else return null;
           }).map((product, index) => {
             return <Card key={index} category={product.category} title={product.title} desc={product.description} />
           })
         }
       </div>
       <button type="button" className={`${styles.analyse__button} btn btn-primary`} data-bs-toggle="modal" data-bs-target="#exampleModal">Analyse</button>
-      <Chart />
+      <Chart uniqueCategories={uniqueCategories} />
     </div >
   )
 }
