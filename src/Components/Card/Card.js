@@ -1,12 +1,15 @@
+
+import styles from './Card.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DUMMY_IMAGE from '../../Assets/images.jpeg'
-const Card = () => {
+const Card = ({ category, title, desc }) => {
     return (
         <div className="card" style={{ width: '18rem' }}>
-            < img src={DUMMY_IMAGE} className="card-img-top" alt="..." />
+            <img src={DUMMY_IMAGE} className="card-img-top" alt="..." />
+            <h5 className={`${styles.category} card-title`}>{category}</h5>
             <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p className="card-text"><u>Title:</u> {title.length > 50 ? title.substring(0, 50) + '...' : title}</p>
+                <p className="card-text"><u>Description:</u> {desc.length > 100 ? desc.substring(0, 100) + '...' : desc}</p>
             </div>
         </div >
     )

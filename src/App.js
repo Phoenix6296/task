@@ -4,23 +4,38 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar/Navbar';
 import { useState, useEffect } from 'react';
 const App = () => {
-  const [categories, setCategories] = useState([]);
+  const [filterCatergory, setFilterCategory] = useState('Categories');
+  const [products, setProducts] = useState([]);
+
+  const onSubmitHandler = (input) => {
+    setFilterCategory(input);
+    console.log(input, "App.js");
+  }
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(response => response.json())
       .then(data => {
-        const categorySet = new Set();
-        data.forEach(item => categorySet.add(item.category));
-        setCategories([...categorySet]);
+        console.log(data);
+        setProducts(data);
       })
-  }, [])
+  }, [filterCatergory])
+
+
   return (
     <div className={`${styles.app__wrapper} container`}>
-      <Navbar categories={categories} />
+      <Navbar onSave={onSubmitHandler} />
       <div className={styles.app}>
-        <Card />
-
-
+        {
+          products.filter((product) => {
+            if (filterCatergory === 'Categories') {
+              return product;
+            } else if (product.category === filterCatergory) {
+              return product;
+            }
+          }).map((product, index) => {
+            return <Card key={index} category={product.category} title={product.title} desc={product.description} />
+          })
+        }
       </div>
     </div>
   )

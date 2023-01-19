@@ -1,0 +1,11 @@
+.category {
+    top: 8.5rem;
+    right: 0;
+
+    position: absolute;
+    border: 1px solid white;
+    color: white !important;
+    font-size: medium;
+    width: fit-content;
+    padding: 0.3rem;
+}
