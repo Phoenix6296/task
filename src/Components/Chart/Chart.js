@@ -1,4 +1,4 @@
-// import styles from './Chart.module.css'
+import styles from './Chart.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
@@ -36,7 +36,7 @@ const Chart = () => {
                         <h1 className="modal-title fs-5" id="exampleModalLabel">Analysis</h1>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div className="modal-body">
+                    <div className={styles.modal__body}>
                         <Pie data={data} />
                     </div>
                 </div>
