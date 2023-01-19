@@ -7,3 +7,9 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.analyse__button {
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+}

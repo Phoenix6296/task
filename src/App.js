@@ -2,6 +2,8 @@ import styles from './App.module.css';
 import Card from './Components/Card/Card'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar/Navbar';
+import Chart from './Components/Chart/Chart';
+
 import { useState, useEffect } from 'react';
 const App = () => {
   const [filterCatergory, setFilterCategory] = useState('Categories');
@@ -9,7 +11,6 @@ const App = () => {
 
   const onSubmitHandler = (input) => {
     setFilterCategory(input);
-    console.log(input, "App.js");
   }
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -37,7 +38,9 @@ const App = () => {
           })
         }
       </div>
-    </div>
+      <button type="button" className={`${styles.analyse__button} btn btn-primary`} data-bs-toggle="modal" data-bs-target="#exampleModal">Analyse</button>
+      <Chart />
+    </div >
   )
 }
 
